@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1036168149731",
+    "firebase_url": "https://homnayangi-6de13-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "homnayangi-6de13",
+    "storage_bucket": "homnayangi-6de13.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1036168149731:android:41f07986204d51755ca3d6",
+        "android_client_info": {
+          "package_name": "com.example.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1036168149731-h416utg6rhf6pmi761c5k5m81snbn52l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyABd4fo-rPMVfdDo2HPYdoYKkdc4j6lMkk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1036168149731-h416utg6rhf6pmi761c5k5m81snbn52l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
