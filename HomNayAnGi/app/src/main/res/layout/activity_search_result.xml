@@ -16,7 +16,7 @@
     <TextView
         android:id="@+id/search_background"
         android:layout_width="0dp"
-        android:layout_height="45dp"
+        android:layout_height="50dp"
         android:background="#FA789F"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -42,8 +42,8 @@
     <ImageButton
         android:id="@+id/button_search"
         style="@style/Widget.AppCompat.Button.Borderless.Colored"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
         android:src="@mipmap/search"
         android:scaleType="fitCenter"
         android:background="@color/cardview_shadow_end_color"
@@ -64,8 +64,8 @@
 
     <ImageButton
         android:id="@+id/home_button"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
         android:scaleType="centerCrop"
         android:background="@color/cardview_shadow_end_color"
         app:layout_constraintBottom_toBottomOf="@+id/search"
