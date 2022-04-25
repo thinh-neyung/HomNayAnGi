@@ -69,6 +69,7 @@ public class search_result extends AppCompatActivity {
                 intent_searchresult.putExtra("count", count);
                 intent_searchresult.putExtra("search_text",search_string);
                 intent_searchresult.putExtra("user",user);
+                intent_searchresult.putExtra("foodlistdata",foodlistdata);
                 startActivity(intent_searchresult);
             }
         }
@@ -88,7 +89,7 @@ public class search_result extends AppCompatActivity {
         list_result=(RecyclerView) findViewById(R.id.list_result);
         search_bar=(EditText)findViewById(R.id.search);
         search_button=(ImageButton)findViewById(R.id.button_search);
-        foodlistdata=new ArrayList<>();
+        foodlistdata= (ArrayList<MonAn>) getIntent().getSerializableExtra("foodlistdata");
         home_button=(ImageButton)findViewById(R.id.home_button);
         user= (com.example.myapplication.data_model.user) getIntent().getSerializableExtra("user");
 
@@ -162,6 +163,7 @@ public class search_result extends AppCompatActivity {
                 Intent intent=new Intent(search_result.this, Activity_rieng1.class);
                 intent.putExtra("mon_an",foodlist_result.get(position));
                 intent.putExtra("user",user);
+                intent.putExtra("foodlistdata",foodlistdata);
                 startActivity(intent);
             }
         });

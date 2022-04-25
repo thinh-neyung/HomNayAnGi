@@ -3,8 +3,18 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/JAVAproject/HomNayAnGi/app/src/main/res/drawable/background_edittext_login.xml" value="0.1515" />
         <entry key="..\:/JAVAproject/HomNayAnGi/app/src/main/res/layout/activity_activityrieng2.xml" value="0.12192622950819672" />
-        <entry key="..\:/JAVAproject/HomNayAnGi/app/src/main/res/layout/activity_main.xml" value="0.12192622950819672" />
+        <entry key="..\:/JAVAproject/HomNayAnGi/app/src/main/res/layout/activity_dangky.xml" value="0.18194444444444444" />
+        <entry key="..\:/JAVAproject/HomNayAnGi/app/src/main/res/layout/activity_login.xml" value="0.33" />
+        <entry key="..\:/JAVAproject/HomNayAnGi/app/src/main/res/layout/activity_main.xml" value="0.26871794871794874" />
+        <entry key="..\:/JAVAproject/HomNayAnGi/app/src/main/res/layout/activity_newpost.xml" value="0.33" />
+        <entry key="..\:/JAVAproject/HomNayAnGi/app/src/main/res/layout/activity_newpost2.xml" value="0.18006872852233677" />
+        <entry key="..\:/JAVAproject/HomNayAnGi/app/src/main/res/layout/activity_rieng1.xml" value="0.25" />
+        <entry key="..\:/JAVAproject/HomNayAnGi/app/src/main/res/layout/activity_search_result.xml" value="0.18194444444444444" />
+        <entry key="..\:/JAVAproject/HomNayAnGi/app/src/main/res/layout/menu_theloai.xml" value="0.18194444444444444" />
+        <entry key="..\:/JAVAproject/HomNayAnGi/app/src/main/res/menu/menu_dokho.xml" value="0.18194444444444444" />
+        <entry key="..\:/JAVAproject/HomNayAnGi/app/src/main/res/menu/menu_theloai.xml" value="0.18194444444444444" />
       </map>
     </option>
   </component>

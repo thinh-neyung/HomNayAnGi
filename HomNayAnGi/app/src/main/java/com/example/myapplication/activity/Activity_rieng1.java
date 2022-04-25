@@ -1,5 +1,6 @@
 package com.example.myapplication.activity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -18,12 +19,15 @@ import androidx.core.content.res.ResourcesCompat;
 import com.example.myapplication.R;
 import com.example.myapplication.VNCharacterUtils;
 import com.example.myapplication.data_model.MonAn;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
+
+import java.util.ArrayList;
 
 public class Activity_rieng1 extends AppCompatActivity {
     ImageView favorite;
@@ -32,7 +36,10 @@ public class Activity_rieng1 extends AppCompatActivity {
     ImageView image;
     Button nau_ngay;
     Button dat_hang;
+    ArrayList<MonAn> foodlistdata;
+    FloatingActionButton delete_button;
     com.example.myapplication.data_model.user user;
+
     public void dat_hang_event(MonAn mon_an)
     {
         Intent intent=new Intent(Activity_rieng1.this, activity_dathang.class);
@@ -48,6 +55,7 @@ public class Activity_rieng1 extends AppCompatActivity {
         intent.putExtra("dat_hang_list",dat_hang_list);
         startActivity(intent);
     }
+    @SuppressLint("RestrictedApi")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,6 +68,8 @@ public class Activity_rieng1 extends AppCompatActivity {
         image=(ImageView)findViewById(R.id.image);
         dat_hang=(Button)findViewById(R.id.dat_hang);
         DatabaseReference db= FirebaseDatabase.getInstance().getReference();
+        foodlistdata=(ArrayList<MonAn>) getIntent().getSerializableExtra("foodlistdata");
+        delete_button=(FloatingActionButton) findViewById(R.id.floatingActionButton3);
 
         final MonAn mon_an=(MonAn)getIntent().getSerializableExtra("mon_an");
         user= (com.example.myapplication.data_model.user) getIntent().getSerializableExtra("user");
@@ -129,5 +139,30 @@ public class Activity_rieng1 extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        if(user.getUsername().toString().contains("admin"))
+        {
+            delete_button.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    for(int i=0;i<foodlistdata.size();i++)
+                    {
+                        if(foodlistdata.get(i).getTen().equals(mon_an.getTen()))
+                        {
+                            foodlistdata.remove(i);
+                            break;
+                        }
+                    }
+                    DatabaseReference dr=FirebaseDatabase.getInstance().getReference();
+                    dr.child("mon_an").setValue(foodlistdata);
+                    Intent intent=new Intent(Activity_rieng1.this,MainActivity.class);
+                    intent.putExtra("user",user);
+                    startActivity(intent);
+                }
+            });
+        }
+        else {
+            delete_button.setVisibility(View.GONE);
+        }
     }
 }

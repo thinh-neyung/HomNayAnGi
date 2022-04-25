@@ -156,5 +156,23 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButton3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:clickable="true"
+        android:foregroundGravity="center"
+        android:foregroundTint="#FFFFFF"
+        android:foregroundTintMode="src_in"
+        android:src="@mipmap/garbage"
+        android:tint="#FFFFFF"
+        app:backgroundTint="#FB98B6"
+        app:fabSize="normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:maxImageSize="30dp" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

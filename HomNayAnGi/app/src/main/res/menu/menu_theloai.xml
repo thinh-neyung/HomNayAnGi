@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menuItem_moncanh"
+        android:title="Món canh" />
+    <item
+        android:id="@+id/menuItem_anvat"
+        android:title="Ăn vặt" />
+    <item
+        android:id="@+id/menuItem_monbanh"
+        android:title="Món bánh" />
+    <item
+        android:id="@+id/menuItem_monchien"
+        android:title="Món chiên" />
+    <item
+        android:id="@+id/menuItem_monkho"
+        android:title="Món kho" />
+    <item
+        android:id="@+id/menuItem_thucuong"
+        android:title="Thức uống" />
+
+
+</menu>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menuItem_de"
+        android:title="Dễ" />
+    <item
+        android:id="@+id/menuItem_trungbinh"
+        android:title="Trung bình" />
+    <item
+        android:id="@+id/menuItem_kho"
+        android:title="Khó" />
+
+</menu>

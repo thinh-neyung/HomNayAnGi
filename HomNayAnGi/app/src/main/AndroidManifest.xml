@@ -13,7 +13,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.activity_dangky"></activity>
+        <activity
+            android:name=".activity.activity_newpost"
+            android:exported="false" />
+        <activity android:name=".activity.activity_dangky" />
         <activity android:name=".activity.activity_login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -32,7 +35,7 @@
             android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".activity.MainActivity"
-            android:windowSoftInputMode="stateHidden"></activity>
+            android:windowSoftInputMode="stateHidden" />
 
         <provider
             android:name="com.facebook.FacebookContentProvider"

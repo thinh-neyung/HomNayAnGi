@@ -1,5 +1,6 @@
 package com.example.myapplication.activity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -24,6 +25,7 @@ import com.example.myapplication.adapter.TheLoai_adapter;
 import com.example.myapplication.adapter.foodadapter;
 import com.example.myapplication.data_model.MonAn;
 import com.example.myapplication.data_model.TheLoai;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -41,6 +43,8 @@ public class MainActivity extends AppCompatActivity {
     ImageButton search_button;
     ImageButton person_button;
     com.example.myapplication.data_model.user user;
+    FloatingActionButton add_button;
+
     protected void add_data_to_theloai_data(ArrayList<TheLoai> theloai_data,ArrayList<MonAn> foodlistdata) {
         for (int a = 0; a < theloai_data.size(); a++) {
             ArrayList<MonAn> list = new ArrayList<>();
@@ -98,6 +102,7 @@ public class MainActivity extends AppCompatActivity {
                 intent_searchresult.putExtra("count", count);
                 intent_searchresult.putExtra("search_text",search_string);
                 intent_searchresult.putExtra("user",user);
+                intent_searchresult.putExtra("foodlistdata",foodlistdata);
                 startActivity(intent_searchresult);
             }
         }
@@ -114,6 +119,7 @@ public class MainActivity extends AppCompatActivity {
         DatabaseReference db = FirebaseDatabase.getInstance().getReference();
         db.child("mon_an").setValue(foodlistdata);
     }
+    @SuppressLint("RestrictedApi")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -128,6 +134,7 @@ public class MainActivity extends AppCompatActivity {
         search_bar=(EditText)findViewById(R.id.search);
         search_button=(ImageButton)findViewById(R.id.button_search);
         person_button=(ImageButton) findViewById(R.id.person_button);
+        add_button=(FloatingActionButton) findViewById(R.id.floatingActionButton);
 
         add_data_to_theloai_data();
         TheLoai_adapter theLoai_adapter=new TheLoai_adapter(this,R.layout.theloai_layout,theloai_data);
@@ -152,6 +159,7 @@ public class MainActivity extends AppCompatActivity {
                         Intent intent=new Intent(MainActivity.this,Activity_rieng1.class);
                         intent.putExtra("mon_an",foodlistdata.get(position));
                         intent.putExtra("user",user);
+                        intent.putExtra("foodlistdata",foodlistdata);
                         startActivity(intent);
                     }
                 });
@@ -212,9 +220,7 @@ public class MainActivity extends AppCompatActivity {
         search_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 search_event();
-
             }
         });
 
@@ -228,5 +234,21 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        if(user.getUsername().toString().contains("admin"))
+        {
+            add_button.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent=new Intent(MainActivity.this,activity_newpost.class);
+                    intent.putExtra("foodlistdata",foodlistdata);
+                    intent.putExtra("user",user);
+                    startActivity(intent);
+                }
+            });
+        }
+        else {
+            add_button.setVisibility(View.GONE);
+        }
     }
 }
