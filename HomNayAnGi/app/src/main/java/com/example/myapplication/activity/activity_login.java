@@ -56,6 +56,7 @@ public class activity_login extends AppCompatActivity {
                     db.child("account").child(username.getText().toString()).addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            try{
                             user user=snapshot.getValue(com.example.myapplication.data_model.user.class);
                             if(password.getText().toString().equals(user.getPassword()))
                             {
@@ -64,6 +65,10 @@ public class activity_login extends AppCompatActivity {
                                 startActivity(intent);
                             }
                             else {
+                                Toast.makeText(activity_login.this,"Mặt khẩu hoặc tài khoản không hợp lệ",Toast.LENGTH_LONG).show();
+                            }}
+                            catch (NullPointerException e)
+                            {
                                 Toast.makeText(activity_login.this,"Mặt khẩu hoặc tài khoản không hợp lệ",Toast.LENGTH_LONG).show();
                             }
                         }

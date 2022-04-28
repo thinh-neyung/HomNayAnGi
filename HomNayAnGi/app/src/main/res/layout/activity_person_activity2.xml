@@ -142,15 +142,26 @@
             <Button
                 android:id="@+id/save_button"
                 style="@style/Widget.AppCompat.Button.Colored"
-                android:layout_width="wrap_content"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="50dp"
-                android:backgroundTint="#FFFFFF"
                 android:text="Lưu"
+                android:backgroundTint="#FFFFFF"
                 android:textColor="#BA5555"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/phone_textview" />
+
+            <Button
+                android:id="@+id/button_logout"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="Đăng xuất"
+                android:backgroundTint="#FFFFFF"
+                android:textColor="#BA5555"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/save_button" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

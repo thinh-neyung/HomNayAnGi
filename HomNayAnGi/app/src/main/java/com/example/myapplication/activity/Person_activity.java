@@ -15,7 +15,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class Person_activity extends AppCompatActivity {
 
-    Button save_button;
+    Button save_button,logout_button;
     EditText name,address,phone;
 
     com.example.myapplication.data_model.user user;
@@ -25,6 +25,7 @@ public class Person_activity extends AppCompatActivity {
         setContentView(R.layout.activity_person_activity2);
 
         save_button=(Button)findViewById(R.id.save_button);
+        logout_button=(Button)findViewById(R.id.button_logout);
         name=(EditText)findViewById(R.id.editText_name);
         address=(EditText)findViewById(R.id.editText_address);
         phone=(EditText)findViewById(R.id.editText_phone);
@@ -54,6 +55,14 @@ public class Person_activity extends AppCompatActivity {
                     startActivity(intent);
                 }
 
+            }
+        });
+        logout_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent= new Intent(Person_activity.this,activity_login.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
             }
         });
     }

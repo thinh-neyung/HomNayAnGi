@@ -3,6 +3,7 @@ package com.example.myapplication.activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -71,7 +72,6 @@ public class activity_newpost extends AppCompatActivity {
                 editText.setHint("Nguyên liệu "+String.valueOf(nguyenlieu_list.getChildCount()));
                 editText.setId(nguyenlieu_list.getChildCount()+200+1);
                 nguyenlieu_list.addView(editText);
-
             }
         });
         add_step_button.setOnClickListener(new View.OnClickListener() {
@@ -81,6 +81,7 @@ public class activity_newpost extends AppCompatActivity {
                 EditText editText_time=new EditText(activity_newpost.this);
                 editText_mota.setHint("Nội dung");
                 editText_time.setHint("Thời gian");
+                editText_time.setInputType(InputType.TYPE_CLASS_NUMBER);
                 editText_mota.setId(step_list.getChildCount()+300+1);
                 editText_time.setId(step_list.getChildCount()+300+2);
                 step_list.addView(editText_mota);
