@@ -47,7 +47,6 @@ public class foodadapter extends RecyclerView.Adapter<foodadapter.ViewHolder> {
         return food_list.size();
     }
 
-
     public class ViewHolder extends RecyclerView.ViewHolder {
         private ImageView picture;
         private TextView name;

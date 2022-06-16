@@ -14,6 +14,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".activity.activity_rieng1_comment"
+            android:exported="false" />
+        <activity
+            android:name=".activity.activity_rieng1_note"
+            android:exported="false" />
+        <activity
             android:name=".activity.activity_newpost"
             android:exported="false" />
         <activity android:name=".activity.activity_dangky" />

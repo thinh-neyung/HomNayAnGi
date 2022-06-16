@@ -141,7 +141,8 @@ public class MainActivity extends AppCompatActivity {
         theloai_listview.setAdapter(theLoai_adapter);
 
         DatabaseReference db=FirebaseDatabase.getInstance().getReference();
-        db.child("mon_an").addValueEventListener(new ValueEventListener() {
+
+        ValueEventListener valueEventListener =new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot postSnapshot: snapshot.getChildren()) {
@@ -153,12 +154,14 @@ public class MainActivity extends AppCompatActivity {
                 foodlistview.setLayoutManager(new GridLayoutManager(MainActivity.this,2));
                 foodlistview.addItemDecoration(new foodadapter.GridSpacingItemDecoration(2,40,true));
                 add_data_to_theloai_data(theloai_data,foodlistdata);
+                db.child("mon_an").removeEventListener(this);
                 ItemClickSupport.addTo(foodlistview).setOnItemClickListener(new ItemClickSupport.OnItemClickListener() {
                     @Override
                     public void onItemClicked(RecyclerView recyclerView, int position, View v) {
                         Intent intent=new Intent(MainActivity.this,Activity_rieng1.class);
                         intent.putExtra("mon_an",foodlistdata.get(position));
                         intent.putExtra("user",user);
+                        intent.putExtra("position",position);
                         intent.putExtra("foodlistdata",foodlistdata);
                         startActivity(intent);
                     }
@@ -187,23 +190,22 @@ public class MainActivity extends AppCompatActivity {
                                 }
                                 intent_searchresult.putExtra("count",count);
                                 intent_searchresult.putExtra("user",user);
+                                intent_searchresult.putExtra("foodlistdata",foodlistdata);
                                 startActivity(intent_searchresult);
                             }
                         });
                     }
-
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {
-
                     }
                 });
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
             }
-        });
+        };
+        db.child("mon_an").addValueEventListener(valueEventListener);
 
         search_bar.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
@@ -223,8 +225,6 @@ public class MainActivity extends AppCompatActivity {
                 search_event();
             }
         });
-
-
         person_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -234,7 +234,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
         if(user.getUsername().toString().contains("admin"))
         {
             add_button.setOnClickListener(new View.OnClickListener() {
@@ -251,4 +250,5 @@ public class MainActivity extends AppCompatActivity {
             add_button.setVisibility(View.GONE);
         }
     }
+
 }

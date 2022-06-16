@@ -9,17 +9,27 @@ public class MonAn implements Serializable {
     private String theloai;
     public ArrayList<String> nguyen_lieu;
     public ArrayList<cac_buoc> list_cac_buoc;
+    public ArrayList<Rate> list_rate;
 
     public MonAn() {
     }
 
-    public MonAn(String ten, String dokho, String hinhanh, String theloai, ArrayList<String> nguyen_lieu, ArrayList<cac_buoc> list_cac_buoc) {
+    public ArrayList<Rate> getList_rate() {
+        return list_rate;
+    }
+
+    public void setList_rate(ArrayList<Rate> list_rate) {
+        this.list_rate = list_rate;
+    }
+
+    public MonAn(String ten, String dokho, String hinhanh, String theloai, ArrayList<String> nguyen_lieu, ArrayList<cac_buoc> list_cac_buoc, ArrayList<Rate> list_rate) {
         this.ten = ten;
         this.dokho = dokho;
         this.hinhanh = hinhanh;
         this.theloai = theloai;
         this.nguyen_lieu = nguyen_lieu;
         this.list_cac_buoc = list_cac_buoc;
+        this.list_rate=list_rate;
     }
 
     public ArrayList<String> getNguyen_lieu() {

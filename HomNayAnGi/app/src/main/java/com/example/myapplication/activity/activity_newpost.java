@@ -190,7 +190,7 @@ public class activity_newpost extends AppCompatActivity {
                                         EditText time=(EditText) findViewById(i+300+3);
                                         cacbuoc_list_data.add(new cac_buoc(step.getText().toString(),time.getText().toString()));
                                     }
-                                    MonAn new_monan = new MonAn(name.getText().toString(),menu_dokho.getText().toString(),image_link,menu_theloai.getText().toString(),nguyenliau_list_data,cacbuoc_list_data);
+                                    MonAn new_monan = new MonAn(name.getText().toString(),menu_dokho.getText().toString(),image_link,menu_theloai.getText().toString(),nguyenliau_list_data,cacbuoc_list_data,new ArrayList<>());
                                     foodlistdata.add(new_monan);
                                     DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
                                     mDatabase.child("mon_an").setValue(foodlistdata);
